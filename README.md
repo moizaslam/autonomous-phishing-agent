@@ -1,99 +1,205 @@
 # Autonomous Phishing Agent
 
-An AI-powered autonomous system that monitors emails, detects phishing and social engineering attempts, and provides clear explanations using both AI and heuristic analysis.
+An **AI-powered autonomous cybersecurity system** that scans inbox emails, detects phishing and social-engineering attacks, and provides clear, explainable threat analysis using both AI models and heuristic rules.
 
-This project is designed as an **academic + practical cybersecurity solution**, combining machine intelligence with rule-based safety mechanisms.
-
----
-
-## Features
-
-- 📥 **Autonomous Email Scanning**
-- 🧠 **AI-Based Phishing Detection**
-- 🔁 **Automatic AI Fallback System**
-- 🔍 **Heuristic Analysis (Links, Domains, Sender Trust)**
-- 📊 **Threat Confidence Scoring**
-- 🧾 **Explainable AI Results**
-- 🌐 **Modern Frontend Dashboard**
-- 🔒 **Safe-by-Design (No silent failures)**
+This project is built as an **academic and practical cybersecurity solution** with a strong focus on **reliability, explainability, and safe failure handling**.
 
 ---
 
-## How the System Works
+## 🚀 Features
 
-1. Emails are fetched from the inbox
+* Autonomous email scanning
+* AI-based phishing detection
+* Automatic AI fallback system
+* Heuristic threat analysis (links, domains, sender trust)
+* Confidence-based risk scoring
+* Explainable AI output
+* Modern, responsive frontend dashboard
+* Safe-by-design architecture (no silent failures)
+
+---
+
+## 🧠 How the System Works
+
+1. The system connects to the email inbox and fetches unseen emails.
 2. Each email is analyzed using:
-   - AI models (DeepSeek / HuggingFace)
-   - Heuristic phishing rules
-3. If AI fails (quota, error, empty response):
-   - System automatically falls back to heuristics
-4. Results are normalized and returned to the frontend
-5. UI displays:
-   - SAFE / PHISHING status
-   - Confidence score
-   - AI explanation
-   - Heuristic signals
-   - Final action taken
+
+   * AI models (DeepSeek / Hugging Face)
+   * Heuristic phishing rules
+3. If the AI fails (quota exceeded, API error, empty response):
+
+   * The system automatically falls back to heuristic analysis.
+4. Results are normalized into a unified report.
+5. The frontend displays:
+
+   * **SAFE** or **PHISHING** status
+   * Confidence percentage
+   * AI explanation
+   * Heuristic indicators
+   * Final action taken
 
 ---
 
-## Tech Stack
+## 🧰 Tech Stack
 
 ### Backend
-- Python
-- Flask (REST API)
-- Gmail API
-- AI Providers:
-  - DeepSeek (primary)
-  - HuggingFace (fallback)
-- Heuristic Engine
-- JSON-based state tracking
+
+* Python
+* Flask (REST API)
+* Email via IMAP / Gmail
+* **AI Providers**:
+
+  * DeepSeek (primary)
+  * Hugging Face (fallback)
+* Heuristic phishing engine
+* Defensive JSON parsing
 
 ### Frontend
-- React (Vite)
-- Plain CSS (no Tailwind)
-- Responsive UI
-- Expandable email analysis cards
+
+* React (Vite)
+* Plain CSS (no Tailwind)
+* Responsive UI
+* Expandable email analysis cards
 
 ---
 
-## Core Modules
+## 📁 Project Structure
 
-| File | Purpose |
-|-----|--------|
-| `email_monitor.py` | Fetches unseen emails |
-| `summarizer.py` | AI analysis + fallback logic |
-| `phishing_detector.py` | Heuristic scoring |
-| `reporter.py` | Final threat report |
-| `processed_ids.py` | Prevents duplicate scans |
-| `app.py` | Flask API |
-| `EmailCard.jsx` | Email UI component |
+```
+autonomous-phishing-agent
+│
+├── backend
+│   ├── app.py                 # Flask API entry point
+│   ├── email_monitor.py       # Fetches unseen emails
+│   ├── summarizer.py          # AI analysis and fallback logic
+│   ├── phishing_detector.py   # Heuristic scoring engine
+│   ├── reporter.py            # Final normalized report
+│   ├── processed_ids.py       # Prevents duplicate scans
+│   ├── config.py              # Environment configuration
+│   └── requirements.txt
+│
+├── frontend
+│   ├── src
+│   │   ├── App.jsx
+│   │   ├── api.js
+│   │   ├── index.css
+│   │   └── components
+│   │       └── EmailCard.jsx
+│   └── package.json
+│
+└── README.md
+```
 
 ---
 
-## Safety & Reliability
+## 🔐 Environment Setup
 
-- No crashes on AI failure
-- No empty AI responses
-- Defensive parsing (`None` safe)
-- Explicit fallback logging
-- Always returns a valid result
+Create a `.env` file inside the **backend** directory:
+
+```env
+EMAIL_HOST=imap.gmail.com
+EMAIL_PORT=993
+EMAIL_USER=your_email@gmail.com
+EMAIL_PASSWORD=your_email_app_password
+
+HF_API_TOKEN=your_huggingface_token
+```
+
+### Important
+
+* **Do not commit** the `.env` file
+* All secrets are excluded using `.gitignore`
 
 ---
 
-## Running the Project
+## ▶️ Running the Project
 
-### Backend
+### Clone the Repository
+
 ```bash
+git clone git@github.com:moizaslam/autonomous-phishing-agent.git
+cd autonomous-phishing-agent
+```
+
+---
+
+### Backend Setup
+
+```bash
+cd backend
+python -m venv venv
+source venv/bin/activate
+```
+
+**Windows:**
+
+```bash
+venv\Scripts\activate
+```
+
+Install dependencies and run:
+
+```bash
+pip install -r requirements.txt
 python app.py
+```
 
-### Frontend
+Backend runs on:
+
+```
+http://127.0.0.1:5000
+```
+
+---
+
+### Frontend Setup
+
 ```bash
+cd frontend
 npm install
 npm run dev
+```
 
-👤 Author
+Frontend runs on:
 
-Muhammad Moiz Aslam
+```
+http://localhost:5173
+```
+
+---
+
+## 🛡️ Safety & Reliability
+
+* No crashes when AI services fail
+* No empty or partial AI responses
+* Defensive handling of null values
+* Explicit fallback logging
+* Always returns a valid analysis result
+
+---
+
+## 🎓 Academic Relevance
+
+This project demonstrates:
+
+* Applied cybersecurity engineering
+* Explainable AI (XAI)
+* AI reliability under failure conditions
+* Secure software design
+* Real-world system architecture
+
+### Suitable for
+
+* University final year projects
+* Cybersecurity coursework
+* AI safety and reliability demonstrations
+
+---
+
+## 👤 Author
+
+**Muhammad Moiz Aslam**
 Senior Frontend & Full-Stack Developer
 Cybersecurity & AI Enthusiast
+
+GitHub: [https://github.com/moizaslam]
