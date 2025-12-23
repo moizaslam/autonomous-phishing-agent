@@ -62,10 +62,12 @@ body {
 }
 
 /* Grid */
-.emails-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-  gap: 24px;
+.email-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  gap: 20px;
 }
 
 /* Card */
